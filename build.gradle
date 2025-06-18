@@ -11,7 +11,7 @@ plugins {
     id('org.jetbrains.intellij') version '1.10.1'
 }
 
-group 'io.github.newhoo.jvm'
+group 'io.github.newhoo'
 version '1.0.7'
 
 java {
@@ -26,14 +26,9 @@ repositories {
 
 dependencies {
 }
-
 intellij {
-//    version.set('2018.1.7')
-    version.set('2024.1')
-    updateSinceUntilBuild.set(false)
-    downloadSources.set(true)
+    version.set("2023.3.6")
     plugins.set(['java'])
-    sandboxDir.set("${rootProject.rootDir}/idea-sandbox")
 }
 
 tasks {
@@ -44,4 +39,11 @@ tasks {
     buildSearchableOptions {
         enabled = false
     }
+}
+
+runPluginVerifier {
+    ideVersions = ["2023.3.6", "2024.1.4"]
+//  https://github.com/JetBrains/intellij-plugin-verifier/releases
+//  https://data.services.jetbrains.com/products?code=IIU
+//    verifierPath = 'D:\\database\\verifier-cli-1.266-all.jar'
 }
